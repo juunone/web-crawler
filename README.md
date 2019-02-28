@@ -2,17 +2,22 @@
 
 python / request+beautifulsoup,selenium
 
+## Materials
+
+```
+# have virtualenvwrapper
+# install pip package in virtualenv
+
+mkvirtualenv [name]
+
+workon [name]
+```
+
 ## parser.py
 
 - 깃헙 포스팅 제목 긁어온후 JSON 형태로 .py 폴더와 동일한 위치 저장
 
 ```
-# have virtualenvwrapper
-
-mkvirtualenv [name]
-
-workon [name]
-
 pip install requests bs4
 ```
 
