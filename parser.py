@@ -1,5 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+import os
+
+# python파일의 위치
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # HTTP GET Request
 req = requests.get('https://juunone.github.io/tags/')
@@ -15,11 +20,15 @@ soup = BeautifulSoup(html, 'html.parser')
 post = soup.find(id="post")
 titles = post.find_all(class_="tag-title")
 
+data = {}
+
 for title in titles:
-    title = title.get_text()
-    print(title, end='')
-    name = ' name::' + title
-    print(name)
+    span = title.get_text()
+    data[span] = span
+    data[span] += 'add String'
+
+with open(os.path.join(BASE_DIR, 'result.json'), 'w+') as json_file:
+    json.dump(data, json_file)
 
 # HTTP Header 가져오기
 # header = req.headers
